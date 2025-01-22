@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Technique Analysis</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav> -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">2023 NTUIHBIT</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <!-- <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li> -->
+                        <!-- <li class="nav-item"><a class="nav-link" href="#">Link</a></li> -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">選擇日期</a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#" onclick="filterSchedule('day1')">第一天 (6/21)</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filterSchedule('day2')">第二天 (6/22)</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filterSchedule('day3')">第三天 (6/23)</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filterSchedule('day4')">第四天 (6/24)</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filterSchedule('day5')">第五天 (6/25)</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="#" onclick="filterSchedule('all')">All</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">選擇組別</a>
+                            <ul class="dropdown-menu" aria-labelledby="groupFilterDropdown">
+                                <li><a class="dropdown-item" href="#" onclick="filterByGroup('大學男')">大學男</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filterByGroup('大學女')">大學女</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filterByGroup('校友男')">校友男</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filterByGroup('校友女')">校友女</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filterByGroup('O35')">O35</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filterByGroup('O45')">O45</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="#" onclick="filterByGroup('all')">All</a></li>
+                            </ul>
+                        </li>
+                        <!-- <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">選擇隊伍</a>
+                            <ul class="dropdown-menu" aria-labelledby="teamFilterDropdown">
+                                <li><a class="dropdown-item" href="#" onclick="filterByTeam('臺大A NTU_A')">臺大A NTU_A</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filterByTeam('臺大B NTU_B')">臺大B NTU_B</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filterByTeam('城大 CityU')">城大 CityU</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filterByTeam('中大 CUHK')">中大 CUHK</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="#" onclick="filterByTeam('all')">All</a></li>
+                            </ul>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masterhead bg-header text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- 不知道怎麼用但這樣是好的 -->
+                <h2 class="text-center text-uppercase mt-4 mb-3">臺灣大學國際手球邀請賽比賽技術紀錄與分析</h2>
+                <h4 class="text-center text-uppercase mb-4">Technique Analysis</h4>
+            </div>
+        </header>
+        <!-- Page content-->
+        <section class="page-section mb-0">
+            <div class="container">
+                <div class="text-center schedule-div" id="day1">
+                    <!-- Day 1 -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="11"><h4>第一天 Day 1（6/21）</h4></th>
+                            </tr>
+                            <tr>
+                                <th>場次</th>
+                                <th>時間</th>
+                                <th>場地</th>
+                                <th>組別</th>
+                                <th>賽別</th>
+                                <th colspan="2">比賽隊伍</th>
+                                <th colspan="2">比數</th>
+                                <th colspan="2">比賽技術分析下載</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1 </td>
+                                <td>10:00</td>
+                                <td>甲</td>
+                                <td>大學男</td>
+                                <td>預賽A組</td>
+                                <td>臺大A NTU_A</td>
+                                <td>臺師大 NTNU </td>
+                                <td>35</td>
+                                <td>25</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day1/技術分析一.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day1/得分流程一.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>2 </td>
+                                <td>10:00</td>
+                                <td>乙</td>
+                                <td>大學男</td>
+                                <td>預賽B組</td>
+                                <td>城大 CityU</td>
+                                <td>中大 CUHK </td>
+                                <td>25</td>
+                                <td>22</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day1/技術分析二.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day1/得分流程二.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>3 </td>
+                                <td>11:10</td>
+                                <td>甲</td>
+                                <td>大學男</td>
+                                <td>預賽A組</td>
+                                <td>教大 EdUHK</td>
+                                <td>理大 PolyU </td>
+                                <td>18</td>
+                                <td>24</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day1/技術分析三.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day1/得分流程三.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>4 </td>
+                                <td>11:10</td>
+                                <td>乙</td>
+                                <td>大學男</td>
+                                <td>預賽B組</td>
+                                <td>浸大 HKBU</td>
+                                <td>臺大B NTU_B </td>
+                                <td>34</td>
+                                <td>20</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day1/技術分析四.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day1/得分流程四.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>5 </td>
+                                <td>14:00</td>
+                                <td>甲</td>
+                                <td>大學女</td>
+                                <td>預賽A組</td>
+                                <td>臺大A NTU_A</td>
+                                <td>科大 HKUST </td>
+                                <td>18</td>
+                                <td>2</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day1/技術分析五.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day1/得分流程五.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>6 </td>
+                                <td>14:00</td>
+                                <td>乙</td>
+                                <td>大學女</td>
+                                <td>預賽A組</td>
+                                <td>理大 PolyU</td>
+                                <td>南大 NTU(SG) </td>
+                                <td>26</td>
+                                <td>13</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day1/技術分析六.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day1/得分流程六.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>7 </td>
+                                <td>15:10</td>
+                                <td>甲</td>
+                                <td>大學女</td>
+                                <td>預賽B組</td>
+                                <td>城大 CityU</td>
+                                <td>臺大B NTU_B </td>
+                                <td>8</td>
+                                <td>8</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day1/技術分析七.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day1/得分流程七.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>8 </td>
+                                <td>16:20</td>
+                                <td>甲</td>
+                                <td>大學男</td>
+                                <td>預賽B組</td>
+                                <td>名大 Nagoya U</td>
+                                <td>城大 CityU </td>
+                                <td>27</td>
+                                <td>18</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day1/技術分析八.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day1/得分流程八.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>16:20</td>
+                                <td>乙</td>
+                                <td>大學男</td>
+                                <td>預賽A組</td>
+                                <td>港大 HKU</td>
+                                <td>臺大A NTU_A</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <!-- 添加更多比賽結果的行 -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center schedule-div" id="day2">
+                    <!-- Day 2 -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="11"><h4>第二天 Day 2（6/22）</h4></th>
+                            </tr>
+                            <tr>
+                                <th>場次</th>
+                                <th>時間</th>
+                                <th>場地</th>
+                                <th>組別</th>
+                                <th>賽別</th>
+                                <th colspan="2">比賽隊伍</th>
+                                <th colspan="2">比數</th>
+                                <th colspan="2">比賽技術分析下載</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>10 </td>
+                                <td>9:00</td>
+                                <td>甲</td>
+                                <td>大學男</td>
+                                <td>預賽B組</td>
+                                <td>中大 CUHK</td>
+                                <td>臺大B NTU_B </td>
+                                <td>24</td>
+                                <td>21</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/10_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/10_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>11 </td>
+                                <td>9:00</td>
+                                <td>乙</td>
+                                <td>大學男</td>
+                                <td>預賽A組</td>
+                                <td>臺師大 NTNU</td>
+                                <td>理大 PolyU </td>
+                                <td>24</td>
+                                <td>29</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/11_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/11_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>12 </td>
+                                <td>10:10</td>
+                                <td>甲</td>
+                                <td>大學男</td>
+                                <td>預賽B組</td>
+                                <td>名大 Nagoya U</td>
+                                <td>浸大 HKBU </td>
+                                <td>19</td>
+                                <td>21</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/12_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/12_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>13 </td>
+                                <td>10:10</td>
+                                <td>乙</td>
+                                <td>大學男</td>
+                                <td>預賽A組</td>
+                                <td>港大 HKU</td>
+                                <td>教大 EdUHK </td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>14 </td>
+                                <td>11:20</td>
+                                <td>甲</td>
+                                <td>大學女</td>
+                                <td>預賽A組</td>
+                                <td>科大 HKUST</td>
+                                <td>南大 NTU(SG) </td>
+                                <td>7</td>
+                                <td>7</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/14_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/14_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>15 </td>
+                                <td>11:20</td>
+                                <td>乙</td>
+                                <td>大學女</td>
+                                <td>預賽A組</td>
+                                <td>臺大A NTU_A</td>
+                                <td>理大 PolyU </td>
+                                <td>14</td>
+                                <td>13</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/15_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/15_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>16 </td>
+                                <td>12:30</td>
+                                <td>甲</td>
+                                <td>大學女</td>
+                                <td>預賽B組</td>
+                                <td>中大 CUHK</td>
+                                <td>城大 CityU </td>
+                                <td>18</td>
+                                <td>10</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/16_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/16_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>17 </td>
+                                <td>14:45</td>
+                                <td>甲</td>
+                                <td>O45</td>
+                                <td>循環決賽</td>
+                                <td>政大 NCCU</td>
+                                <td>臺大 NTU </td>
+                                <td>13</td>
+                                <td>21</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/17_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/17_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>18 </td>
+                                <td>14:45</td>
+                                <td>乙</td>
+                                <td>大學男</td>
+                                <td>預賽A組</td>
+                                <td>理大 PolyU</td>
+                                <td>臺大A NTU_A </td>
+                                <td>22</td>
+                                <td>25</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/18_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/18_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>19 </td>
+                                <td>14:45</td>
+                                <td>丙</td>
+                                <td>大學男</td>
+                                <td>預賽B組</td>
+                                <td>臺大B NTU_B</td>
+                                <td>城大 CityU </td>
+                                <td>22</td>
+                                <td>31</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/19_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/19_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>20 </td>
+                                <td>17:00</td>
+                                <td>甲</td>
+                                <td>O45</td>
+                                <td>循環決賽</td>
+                                <td>逢甲 FCU</td>
+                                <td>香港手聯 </td>
+                                <td>10</td>
+                                <td>18</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/20_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/20_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>21 </td>
+                                <td>17:00</td>
+                                <td>乙</td>
+                                <td>O45</td>
+                                <td>循環決賽</td>
+                                <td>成大  NCKU</td>
+                                <td>SCAA CLASSIC </td>
+                                <td>13</td>
+                                <td>21</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/21_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/21_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>22 </td>
+                                <td>17:00</td>
+                                <td>丙</td>
+                                <td>校友女</td>
+                                <td>預賽B組</td>
+                                <td>台北美魔女</td>
+                                <td>創青體育會 </td>
+                                <td>24</td>
+                                <td>21</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/22_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/22_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>23 </td>
+                                <td>17:50</td>
+                                <td>甲</td>
+                                <td>校友女</td>
+                                <td>預賽A組</td>
+                                <td>臺大 NTU</td>
+                                <td>OTTERCORN </td>
+                                <td>25</td>
+                                <td>27</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/23_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/23_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>24 </td>
+                                <td>17:50</td>
+                                <td>乙</td>
+                                <td>校友女</td>
+                                <td>預賽A組</td>
+                                <td>隼青</td>
+                                <td>港大 HKU </td>
+                                <td>21</td>
+                                <td>12</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/24_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/24_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>25 </td>
+                                <td>18:00</td>
+                                <td>丙</td>
+                                <td>校友男</td>
+                                <td>預賽A組</td>
+                                <td>港大 HKU</td>
+                                <td>臺大A NTU_A </td>
+                                <td>28</td>
+                                <td>27</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/25_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/25_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>26 </td>
+                                <td>18:50</td>
+                                <td>甲</td>
+                                <td>校友男</td>
+                                <td>預賽A組</td>
+                                <td>中大 CUHK</td>
+                                <td>城大 CityU(O35) </td>
+                                <td>36</td>
+                                <td>14</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/26_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/26_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>27 </td>
+                                <td>18:50</td>
+                                <td>乙</td>
+                                <td>校友男</td>
+                                <td>預賽D組</td>
+                                <td>逢甲 FCU</td>
+                                <td>科大 HKUST </td>
+                                <td>24</td>
+                                <td>24</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/27_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/27_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>28 </td>
+                                <td>19:00</td>
+                                <td>丙</td>
+                                <td>校友男</td>
+                                <td>預賽B組</td>
+                                <td>城大 CityU</td>
+                                <td>臺大B NTU_B </td>
+                                <td>23</td>
+                                <td>25</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/28_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/28_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>29 </td>
+                                <td>19:50</td>
+                                <td>甲</td>
+                                <td>校友男</td>
+                                <td>預賽C組</td>
+                                <td>Willows</td>
+                                <td>臺大 NTU(O35) </td>
+                                <td>28</td>
+                                <td>17</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/29_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/29_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>30</td>
+                                <td>19:50</td>
+                                <td>乙</td>
+                                <td>校友男</td>
+                                <td>預賽C組</td>
+                                <td>理大 PolyU</td>
+                                <td>澳門理工 MPU </td>
+                                <td>34</td>
+                                <td>21</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/30_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/30_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>31</td>
+                                <td>20:00</td>
+                                <td>丙</td>
+                                <td>校友男</td>
+                                <td>預賽B組</td>
+                                <td>浸大 HKBU</td>
+                                <td>勇毅手球(O35)</td>
+                                <td>37</td>
+                                <td>18</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/31_技術分析.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day2/31_得分紀錄.pdf">得分流程</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center schedule-div" id="day3">
+                    <!-- Day 3 -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="11"><h4>第三天 Day 3（6/23）</h4></th>
+                            </tr>
+                            <tr>
+                                <th>場次</th>
+                                <th>時間</th>
+                                <th>場地</th>
+                                <th>組別</th>
+                                <th>賽別</th>
+                                <th colspan="2">比賽隊伍</th>
+                                <th colspan="2">比數</th>
+                                <th colspan="2">比賽技術分析下載</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>32 </td>
+                                <td>9:00</td>
+                                <td>甲</td>
+                                <td>校友男</td>
+                                <td>預賽A組</td>
+                                <td>臺大A NTU_A</td>
+                                <td>城大 CityU(O35) </td>
+                                <td>30</td>
+                                <td>20</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析32.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程32.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>33 </td>
+                                <td>9:00</td>
+                                <td>乙</td>
+                                <td>校友男</td>
+                                <td>預賽D組</td>
+                                <td>逢甲 FCU</td>
+                                <td>A-Team </td>
+                                <td>16</td>
+                                <td>21</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析33.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程33.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>34 </td>
+                                <td>9:00</td>
+                                <td>丙</td>
+                                <td>校友男</td>
+                                <td>預賽A組</td>
+                                <td>港大 HKU</td>
+                                <td>中大 CUHK </td>
+                                <td>23</td>
+                                <td>27</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析34.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程34.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>35 </td>
+                                <td>10:00</td>
+                                <td>甲</td>
+                                <td>校友男</td>
+                                <td>預賽B組</td>
+                                <td>臺大B NTU_B</td>
+                                <td>勇毅手球(O35) </td>
+                                <td>38</td>
+                                <td>20</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析35.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程35.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>36 </td>
+                                <td>10:00</td>
+                                <td>乙</td>
+                                <td>校友男</td>
+                                <td>預賽B組</td>
+                                <td>城大 CityU</td>
+                                <td>浸大 HKBU </td>
+                                <td>35</td>
+                                <td>19</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析36.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程36.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>37 </td>
+                                <td>10:00</td>
+                                <td>丙</td>
+                                <td>校友男</td>
+                                <td>預賽C組</td>
+                                <td>澳門理工 MPU</td>
+                                <td>臺大 NTU(O35) </td>
+                                <td>25</td>
+                                <td>19</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析37.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程37.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>38 </td>
+                                <td>11:00</td>
+                                <td>甲</td>
+                                <td>校友男</td>
+                                <td>預賽C組</td>
+                                <td>理大 PolyU</td>
+                                <td>Willows </td>
+                                <td>23</td>
+                                <td>17</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析38.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程38.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>39 </td>
+                                <td>11:00</td>
+                                <td>乙</td>
+                                <td>大學男</td>
+                                <td>預賽A組</td>
+                                <td>教大 EdUHK</td>
+                                <td>臺師大 NTNU </td>
+                                <td>30</td>
+                                <td>32</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析39.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程39.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>40 </td>
+                                <td>11:00</td>
+                                <td>丙</td>
+                                <td>大學男</td>
+                                <td>預賽B組</td>
+                                <td>浸大 HKBU</td>
+                                <td>中大 CUHK </td>
+                                <td>25</td>
+                                <td>23</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析40.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程40.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>41 </td>
+                                <td>12:00</td>
+                                <td>甲</td>
+                                <td>校友女</td>
+                                <td>預賽A組</td>
+                                <td>隼青</td>
+                                <td>臺大 NTU </td>
+                                <td>22</td>
+                                <td>25</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析41.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程41.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>42 </td>
+                                <td>12:00</td>
+                                <td>乙</td>
+                                <td>大學男</td>
+                                <td>預賽A組</td>
+                                <td>理大 PolyU</td>
+                                <td>港大 HKU </td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>43 </td>
+                                <td>12:00</td>
+                                <td>丙</td>
+                                <td>大學男</td>
+                                <td>預賽B組</td>
+                                <td>臺大B NTU_B</td>
+                                <td>名大 Nagoya U </td>
+                                <td>18</td>
+                                <td>34</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析43.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程43.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>44 </td>
+                                <td>13:00</td>
+                                <td>甲</td>
+                                <td>校友女</td>
+                                <td>預賽A組</td>
+                                <td>港大 HKU</td>
+                                <td>OTTERCORN </td>
+                                <td>15</td>
+                                <td>21</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析44.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程44.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>45 </td>
+                                <td>13:00</td>
+                                <td>乙</td>
+                                <td>校友女</td>
+                                <td>預賽B組</td>
+                                <td>stunners</td>
+                                <td>台北美魔女 </td>
+                                <td>22</td>
+                                <td>16</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析45.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程45.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>46 </td>
+                                <td>13:00</td>
+                                <td>丙</td>
+                                <td>大學女</td>
+                                <td>預賽A組</td>
+                                <td>南大 NTU(SG)</td>
+                                <td>臺大A NTU_A </td>
+                                <td>7</td>
+                                <td>27</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析46.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程46.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>47 </td>
+                                <td>14:00</td>
+                                <td>甲</td>
+                                <td>O45</td>
+                                <td>循環決賽</td>
+                                <td>成大  NCKU</td>
+                                <td>政大 NCCU </td>
+                                <td>17</td>
+                                <td>10</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析47.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程47.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>48 </td>
+                                <td>14:00</td>
+                                <td>乙</td>
+                                <td>大學女</td>
+                                <td>預賽A組</td>
+                                <td>理大 PolyU</td>
+                                <td>科大 HKUST </td>
+                                <td>19</td>
+                                <td>6</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析48.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程48.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>49 </td>
+                                <td>14:00</td>
+                                <td>丙</td>
+                                <td>大學女</td>
+                                <td>預賽B組</td>
+                                <td>臺大B NTU_B</td>
+                                <td>中大 CUHK </td>
+                                <td>18</td>
+                                <td>14</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析49.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程49.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>50 </td>
+                                <td>15:00</td>
+                                <td>甲</td>
+                                <td>O45</td>
+                                <td>循環決賽</td>
+                                <td>臺大 NTU</td>
+                                <td>逢甲 FCU </td>
+                                <td>19</td>
+                                <td>18</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析50.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程50.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>51 </td>
+                                <td>15:00</td>
+                                <td>乙</td>
+                                <td>O45</td>
+                                <td>循環決賽</td>
+                                <td>香港手聯</td>
+                                <td>SCAA CLASSIC </td>
+                                <td>14</td>
+                                <td>17</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析51.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程51.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>52 </td>
+                                <td>15:00</td>
+                                <td>丙</td>
+                                <td>校友男</td>
+                                <td>預賽D組</td>
+                                <td>科大 HKUST</td>
+                                <td>A-Team </td>
+                                <td>20</td>
+                                <td>21</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析52.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程52.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>53 </td>
+                                <td>16:00</td>
+                                <td>甲</td>
+                                <td>校友男</td>
+                                <td>預賽A組</td>
+                                <td>港大 HKU</td>
+                                <td>城大 CityU(O35) </td>
+                                <td>33</td>
+                                <td>19</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析53.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程53.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>54</td>
+                                <td>16:00</td>
+                                <td>乙</td>
+                                <td>校友男</td>
+                                <td>預賽A組</td>
+                                <td>臺大A NTU_A</td>
+                                <td>中大 CUHK </td>
+                                <td>25</td>
+                                <td>22</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析54.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程54.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>55</td>
+                                <td>16:00</td>
+                                <td>丙</td>
+                                <td>校友男</td>
+                                <td>預賽B組</td>
+                                <td>城大 CityU</td>
+                                <td>勇毅手球(O35) </td>
+                                <td>30</td>
+                                <td>18</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析55.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程55.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>56</td>
+                                <td>17:00</td>
+                                <td>甲</td>
+                                <td>校友男</td>
+                                <td>預賽B組</td>
+                                <td>臺大B NTU_B</td>
+                                <td>浸大 HKBU </td>
+                                <td>22</td>
+                                <td>21</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析56.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程56.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>57</td>
+                                <td>17:00</td>
+                                <td>乙</td>
+                                <td>校友男</td>
+                                <td>預賽C組</td>
+                                <td>理大 PolyU</td>
+                                <td>臺大 NTU(O35) </td>
+                                <td>39</td>
+                                <td>13</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析57.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程57.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>58</td>
+                                <td>17:00</td>
+                                <td>丙</td>
+                                <td>校友男</td>
+                                <td>預賽C組</td>
+                                <td>澳門理工 MPU</td>
+                                <td>Willows</td>
+                                <td>28</td>
+                                <td>25</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/技術分析58.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day3/得分流程58.pdf">得分流程</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center schedule-div" id="day4">
+                    <!-- Day 4 -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="11"><h4>第四天 Day 4（6/24）</h4></th>
+                            </tr>
+                            <tr>
+                                <th>場次</th>
+                                <th>時間</th>
+                                <th>場地</th>
+                                <th>組別</th>
+                                <th>賽別</th>
+                                <th colspan="2">比賽隊伍</th>
+                                <th colspan="2">比數</th>
+                                <th colspan="2">比賽技術分析下載</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>59 </td>
+                                <td>9:00</td>
+                                <td>甲</td>
+                                <td>校友女</td>
+                                <td>預賽A組</td>
+                                <td>臺大 NTU</td>
+                                <td>港大 HKU </td>
+                                <td>26</td>
+                                <td>17</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析59.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程59.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>60 </td>
+                                <td>9:00</td>
+                                <td>乙</td>
+                                <td>校友女</td>
+                                <td>預賽B組</td>
+                                <td>創青體育會</td>
+                                <td>stunners </td>
+                                <td>21</td>
+                                <td>16</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析60.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程60.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>61 </td>
+                                <td>9:00</td>
+                                <td>丙</td>
+                                <td>校友女</td>
+                                <td>預賽A組</td>
+                                <td>OTTERCORN</td>
+                                <td>隼青 </td>
+                                <td>22</td>
+                                <td>24</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析61.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程61.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>62 </td>
+                                <td>10:00</td>
+                                <td>甲</td>
+                                <td>O45</td>
+                                <td>循環決賽</td>
+                                <td>成大  NCKU</td>
+                                <td>臺大 NTU </td>
+                                <td>16</td>
+                                <td>13</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析62.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程62.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>63 </td>
+                                <td>10:00</td>
+                                <td>乙</td>
+                                <td>O45</td>
+                                <td>循環決賽</td>
+                                <td>SCAA CLASSIC</td>
+                                <td>逢甲 FCU </td>
+                                <td>21</td>
+                                <td>9</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析63.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程63.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>64 </td>
+                                <td>10:00</td>
+                                <td>丙</td>
+                                <td>O45</td>
+                                <td>循環決賽</td>
+                                <td>政大 NCCU</td>
+                                <td>香港手聯 </td>
+                                <td>11</td>
+                                <td>17</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析64.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程64.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>65 </td>
+                                <td>11:00</td>
+                                <td>甲</td>
+                                <td>O35</td>
+                                <td>循環決賽</td>
+                                <td>臺大 NTU (O35)</td>
+                                <td>城大 CityU (O35) </td>
+                                <td>22</td>
+                                <td>16</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析65.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程65.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>66 </td>
+                                <td>11:00</td>
+                                <td>乙</td>
+                                <td>大學男</td>
+                                <td>預賽A組</td>
+                                <td>臺師大 NTNU</td>
+                                <td>港大 HKU </td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>67 </td>
+                                <td>11:00</td>
+                                <td>丙</td>
+                                <td>大學女</td>
+                                <td>5,6,7名</td>
+                                <td>科大 HKUST</td>
+                                <td>城大 CityU</td>
+                                <td>13</td>
+                                <td>10</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析67.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程67.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>68 </td>
+                                <td>12:00</td>
+                                <td>甲</td>
+                                <td>校友男</td>
+                                <td>準決賽</td>
+                                <td>浸大 HKBU</td>
+                                <td>逢甲 FCU</td>
+                                <td>17</td>
+                                <td>25</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析68.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程68.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>69 </td>
+                                <td>12:00</td>
+                                <td>乙</td>
+                                <td>校友男</td>
+                                <td>準決賽</td>
+                                <td>港大 HKU</td>
+                                <td>Willows</td>
+                                <td>31</td>
+                                <td>22</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析69.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程69.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>70 </td>
+                                <td>12:00</td>
+                                <td>丙</td>
+                                <td>校友男</td>
+                                <td>準決賽</td>
+                                <td>中大 CUHK</td>
+                                <td>澳門理工 MPU</td>
+                                <td>29</td>
+                                <td>26</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析70.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程70.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>71 </td>
+                                <td>13:00</td>
+                                <td>甲</td>
+                                <td>校友男</td>
+                                <td>準決賽</td>
+                                <td>城大 CityU</td>
+                                <td>科大 HKUST</td>
+                                <td>28</td>
+                                <td>14</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析71.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程71.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>72 </td>
+                                <td>13:00</td>
+                                <td>乙</td>
+                                <td>校友男</td>
+                                <td>準決賽</td>
+                                <td>臺大A NTU_A</td>
+                                <td>理大 PolyU</td>
+                                <td>20</td>
+                                <td>31</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析72.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程72.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>73 </td>
+                                <td>13:00</td>
+                                <td>丙</td>
+                                <td>校友男</td>
+                                <td>準決賽</td>
+                                <td>臺大B NTU_B</td>
+                                <td>A-Team</td>
+                                <td>24</td>
+                                <td>28</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析73.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程73.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>74 </td>
+                                <td>14:00</td>
+                                <td>甲</td>
+                                <td>大學男</td>
+                                <td>預賽B組</td>
+                                <td>城大 CityU</td>
+                                <td>浸大 HKBU </td>
+                                <td>26</td>
+                                <td>30</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析74.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程74.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>75 </td>
+                                <td>14:00</td>
+                                <td>乙</td>
+                                <td>大學男</td>
+                                <td>預賽A組</td>
+                                <td>臺大A NTU_A</td>
+                                <td>教大 EdUHK </td>
+                                <td>30</td>
+                                <td>22</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析75.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程75.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>76 </td>
+                                <td>14:00</td>
+                                <td>丙</td>
+                                <td>大學男</td>
+                                <td>預賽B組</td>
+                                <td>中大 CUHK</td>
+                                <td>名大 Nagoya U </td>
+                                <td>20</td>
+                                <td>22</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析76.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程76.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>77 </td>
+                                <td>15:00</td>
+                                <td>甲</td>
+                                <td>大學女</td>
+                                <td>複賽</td>
+                                <td>臺大A NTU_A</td>
+                                <td>中大 CUHK</td>
+                                <td>20</td>
+                                <td>10</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析77.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程77.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>78 </td>
+                                <td>15:00</td>
+                                <td>乙</td>
+                                <td>大學女</td>
+                                <td>複賽</td>
+                                <td>臺大B NTU_B</td>
+                                <td>理大 PolyU</td>
+                                <td>10</td>
+                                <td>26</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析78.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程78.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>79 </td>
+                                <td>15:00</td>
+                                <td>丙</td>
+                                <td>校友女</td>
+                                <td>5,6,7名</td>
+                                <td>隼青</td>
+                                <td>台北美魔女</td>
+                                <td>19</td>
+                                <td>16</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析79.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程79.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>80 </td>
+                                <td>16:00</td>
+                                <td>甲</td>
+                                <td>O45</td>
+                                <td>循環決賽</td>
+                                <td>香港手聯</td>
+                                <td>臺大 NTU </td>
+                                <td>14</td>
+                                <td>10</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析80.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程80.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>81 </td>
+                                <td>16:00</td>
+                                <td>乙</td>
+                                <td>O45</td>
+                                <td>循環決賽</td>
+                                <td>政大 NCCU</td>
+                                <td>SCAA CLASSIC </td>
+                                <td>12</td>
+                                <td>24</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析81.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程81.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>82 </td>
+                                <td>16:00</td>
+                                <td>丙</td>
+                                <td>O45</td>
+                                <td>循環決賽</td>
+                                <td>逢甲 FCU</td>
+                                <td>成大  NCKU </td>
+                                <td>12</td>
+                                <td>16</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析82.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程82.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>83</td>
+                                <td>17:00</td>
+                                <td>甲</td>
+                                <td>O35</td>
+                                <td>循環決賽</td>
+                                <td>城大 CityU(O35)</td>
+                                <td>勇毅手球(O35)</td>
+                                <td>18</td>
+                                <td>13</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/技術分析83.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day4/得分流程83.pdf">得分流程</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center schedule-div" id="day5">
+                    <!-- Day 5 -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="11"><h4>第五天 Day 5（6/25）</h4></th>
+                            </tr>
+                            <tr>
+                                <th>場次</th>
+                                <th>時間</th>
+                                <th>場地</th>
+                                <th>組別</th>
+                                <th>賽別</th>
+                                <th colspan="2">比賽隊伍</th>
+                                <th colspan="2">比數</th>
+                                <th colspan="2">比賽技術分析下載</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>84 </td>
+                                <td>8:30</td>
+                                <td>甲</td>
+                                <td>校友男</td>
+                                <td>7.8名</td>
+                                <td>澳門理工 MPU</td>
+                                <td>科大 HKUST</td>
+                                <td>19</td>
+                                <td>18</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析84.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程84.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>85 </td>
+                                <td>8:30</td>
+                                <td>乙</td>
+                                <td>校友男</td>
+                                <td>9.10名</td>
+                                <td>逢甲 FCU</td>
+                                <td>港大 HKU</td>
+                                <td>26</td>
+                                <td>25</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析85.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程85.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>86 </td>
+                                <td>8:30</td>
+                                <td>丙</td>
+                                <td>校友男</td>
+                                <td>11,12名</td>
+                                <td>浸大 HKBU</td>
+                                <td>Willows</td>
+                                <td>24</td>
+                                <td>25</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析86.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程86.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>87 </td>
+                                <td>9:30</td>
+                                <td>甲</td>
+                                <td>O35</td>
+                                <td>循環決賽</td>
+                                <td>勇毅手球(O35)</td>
+                                <td>臺大 NTU(O35) </td>
+                                <td>20</td>
+                                <td>31</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析87.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程87.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>88 </td>
+                                <td>9:30</td>
+                                <td>乙</td>
+                                <td>大學男</td>
+                                <td>7.8.9名</td>
+                                <td>教大 EdUHK</td>
+                                <td>中大 CUHK</td>
+                                <td>28</td>
+                                <td>39</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析88.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程88.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>89 </td>
+                                <td>9:30</td>
+                                <td>丙</td>
+                                <td>大學男</td>
+                                <td>5.6名</td>
+                                <td>臺師大 NTNU</td>
+                                <td>城大 CityU</td>
+                                <td>33</td>
+                                <td>32</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析89.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程89.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>90 </td>
+                                <td>10:30</td>
+                                <td>甲</td>
+                                <td>校友女</td>
+                                <td>冠亞</td>
+                                <td>臺大 NTU</td>
+                                <td>創青體育會</td>
+                                <td>31</td>
+                                <td>23</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析90.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程90.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>91 </td>
+                                <td>10:45</td>
+                                <td>乙</td>
+                                <td>校友女</td>
+                                <td>季殿</td>
+                                <td>OTTERCORN</td>
+                                <td>stunners</td>
+                                <td>26</td>
+                                <td>19</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析91.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程91.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>92 </td>
+                                <td>10:45</td>
+                                <td>丙</td>
+                                <td>校友女</td>
+                                <td>5,6,7名</td>
+                                <td>港大 HKU</td>
+                                <td>台北美魔女</td>
+                                <td>21</td>
+                                <td>8</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析92.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程92.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>93 </td>
+                                <td>11:30</td>
+                                <td>甲</td>
+                                <td>校友男</td>
+                                <td>冠亞</td>
+                                <td>理大 PolyU</td>
+                                <td>A-Team</td>
+                                <td>23</td>
+                                <td>17</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析93.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程93.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>94 </td>
+                                <td>11:45</td>
+                                <td>乙</td>
+                                <td>校友男</td>
+                                <td>季殿</td>
+                                <td>臺大A NTU_A</td>
+                                <td>臺大B NTU_B</td>
+                                <td>38</td>
+                                <td>36</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析94.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程94.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>95 </td>
+                                <td>11:45</td>
+                                <td>丙</td>
+                                <td>校友男</td>
+                                <td>5,6名</td>
+                                <td>中大 CUHK</td>
+                                <td>城大 CityU(O35)</td>
+                                <td>12</td>
+                                <td>31</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析95.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程95.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>96 </td>
+                                <td>12:30</td>
+                                <td>甲</td>
+                                <td>O45</td>
+                                <td>循環決賽</td>
+                                <td>臺大 NTU</td>
+                                <td>SCAA CLASSIC </td>
+                                <td>15</td>
+                                <td>25</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析96.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程96.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>97 </td>
+                                <td>12:45</td>
+                                <td>乙</td>
+                                <td>O45</td>
+                                <td>循環決賽</td>
+                                <td>香港手聯</td>
+                                <td>成大  NCKU </td>
+                                <td>25</td>
+                                <td>8</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析97.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程97.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>98 </td>
+                                <td>12:45</td>
+                                <td>丙</td>
+                                <td>O45</td>
+                                <td>循環決賽</td>
+                                <td>逢甲 FCU</td>
+                                <td>政大 NCCU </td>
+                                <td>17</td>
+                                <td>14</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析98.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程98.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>99 </td>
+                                <td>13:25</td>
+                                <td>甲</td>
+                                <td>大學女</td>
+                                <td>冠亞</td>
+                                <td>臺大A NTU_A</td>
+                                <td>理大 PolyU</td>
+                                <td>16</td>
+                                <td>17</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析99.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程99.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>100 </td>
+                                <td>13:40</td>
+                                <td>乙</td>
+                                <td>大學女</td>
+                                <td>季殿</td>
+                                <td>中大 CUHK</td>
+                                <td>臺大B NTU_B</td>
+                                <td>22</td>
+                                <td>24</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析100.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程100.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>101 </td>
+                                <td>13:40</td>
+                                <td>丙</td>
+                                <td>大學女</td>
+                                <td>5,6,7名</td>
+                                <td>南大 NTU(SG)</td>
+                                <td>城大 CityU</td>
+                                <td>21</td>
+                                <td>20</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析101.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程101.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>102 </td>
+                                <td>14:40</td>
+                                <td>甲</td>
+                                <td>大學男</td>
+                                <td>冠亞</td>
+                                <td>臺大A NTU_A</td>
+                                <td>浸大 HKBU</td>
+                                <td>33</td>
+                                <td>26</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析102.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程102.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>103 </td>
+                                <td>14:55</td>
+                                <td>乙</td>
+                                <td>大學男</td>
+                                <td>季殿</td>
+                                <td>理大 PolyU</td>
+                                <td>名大 Nagoya U</td>
+                                <td>25</td>
+                                <td>28</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析103.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程103.pdf">得分流程</a></td>
+                            </tr>
+                            <tr>
+                                <td>104</td>
+                                <td>14:55</td>
+                                <td>丙</td>
+                                <td>大學男</td>
+                                <td>7.8.9名</td>
+                                <td>教大 EdUHK</td>
+                                <td>臺大B NTU_B</td>
+                                <td>27</td>
+                                <td>21</td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/技術分析104.pdf">技術分析</a></td>
+                                <td><a target="_blank" href="assets/pdf/成績/TechniqueAnalysis/Day5/得分流程104.pdf">得分流程</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
