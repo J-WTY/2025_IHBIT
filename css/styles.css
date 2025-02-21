@@ -44,7 +44,7 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-header-rgb: 39, 31, 29; /* header color */
+  --bs-header-rgb: 255, 255, 255; /* header color */
   --bs-footer-rgb: 36, 60, 114; /* footer color */
   --bs-primary-rgb: 36, 60, 114;
   --bs-secondary-rgb: 252,196, 0; /* navigation div color*/
@@ -3776,7 +3776,7 @@ textarea.form-control-lg {
   --bs-navbar-toggler-border-color: rgba(0, 0, 0, 0.1);
   --bs-navbar-toggler-border-radius: 0.5rem;
   --bs-navbar-toggler-focus-width: 0.25rem;
-  --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
+  --bs-navbar-toggler-transition: box-shadow 0.3s ease-in-out;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -8165,6 +8165,11 @@ textarea.form-control-lg {
   background-color: rgba(var(--bs-header-rgb), var(--bs-bg-opacity)) !important;
 }
 
+.bg-header_self_define {
+  --bs-bg-opacity: 1;
+  background-color: #fbc400;
+}
+
 .bg-primary {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
@@ -11020,13 +11025,13 @@ html {
   font-size: 1.25rem;
 }
 .masthead .masthead-avatar {
-  width: 15rem;
+  width: 5rem;
 }
 
 @media (min-width: 992px) {
   .masthead {
-    padding-top: calc(6rem + 104px);
-    padding-bottom: 6rem;
+    padding-top: calc(4rem + 1px); /* here to change space under navigator */
+    padding-bottom: 4rem;
   }
   .masthead .masthead-heading {
     font-size: 4rem;
@@ -11146,4 +11151,12 @@ html {
 
 #dark_yellow_href a {
   color: #e5b60e;
+}
+
+#yellow_bg {
+  background-color: #fbc400;
+}
+
+.black_text {
+  color: #000;
 }
