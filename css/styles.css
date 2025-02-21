@@ -11014,7 +11014,7 @@ html {
 }
 
 .masthead {
-  padding-top: calc(6rem + 74px);
+  padding-top: calc(6rem + 0px);
   padding-bottom: 6rem;
 }
 .masthead .masthead-heading {
@@ -11030,7 +11030,7 @@ html {
 
 @media (min-width: 992px) {
   .masthead {
-    padding-top: calc(4rem + 1px); /* here to change space under navigator */
+    padding-top: calc(4rem + 0px); /* here to change space under navigator */
     padding-bottom: 4rem;
   }
   .masthead .masthead-heading {
@@ -11160,3 +11160,7 @@ html {
 .black_text {
   color: #000;
 } 
+
+.adjust_space {
+  padding-top: 15px; padding-bottom: 15px;
+}
