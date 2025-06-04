@@ -691,9 +691,14 @@ progress {
 }
 
 .img-fluid {
-  max-width: 100%;
+  max-width: 33%;
+  height: auto;
+}
+
+.full-width-image {
   width: 100%;
   height: auto;
+  display: block;
 }
 
 .img-fluid_item {
