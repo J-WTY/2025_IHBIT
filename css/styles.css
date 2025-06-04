@@ -9180,8 +9180,8 @@ fieldset:disabled .btn {
 }
 
 .bg-header_self_define {
-  --bs-bg-opacity: 1;
-  background-color: #fbc400;
+    background-color: #f7c600;
+    padding: 10rem 0;  /* <- This is too much for mobile */
 }
 
 .bg-primary {
