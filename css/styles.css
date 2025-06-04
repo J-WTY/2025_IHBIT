@@ -13035,8 +13035,10 @@ html {
 }
 
 .shirt-img {
-  max-width: 100%;
   width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 @media (max-width: 576px) {
