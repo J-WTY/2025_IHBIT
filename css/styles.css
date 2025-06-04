@@ -13033,7 +13033,14 @@ html {
   /* default is 1.5rem */
   --bs-gutter-y: 0.5rem;
 }
+
 .shirt-img {
   max-width: 100%;
   width: 100%;
+}
+
+@media (max-width: 576px) {
+  .row .col-4 img {
+    max-width: 90%;
+  }
 }
