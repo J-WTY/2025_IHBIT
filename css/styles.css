@@ -697,8 +697,10 @@ progress {
 
 .full-width-image {
   width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
+  object-fit: contain;
 }
 
 .img-fluid_item {
