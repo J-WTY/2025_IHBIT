@@ -797,6 +797,7 @@ progress {
   }
 }
 
+
 .row {
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
@@ -9182,8 +9183,9 @@ fieldset:disabled .btn {
 }
 
 .bg-header_self_define {
-    background-color: #f7c600;
-    padding: 10rem 0;  /* <- This is too much for mobile */
+  background-color: #f7c600;
+  padding: 10rem 0;
+  /* <- This is too much for mobile */
 }
 
 .bg-primary {
@@ -13022,4 +13024,16 @@ html {
 .adjust_space {
   padding-top: 15px;
   padding-bottom: 15px;
+}
+
+
+
+.row.tight-gutter {
+  --bs-gutter-x: 0.5rem;
+  /* default is 1.5rem */
+  --bs-gutter-y: 0.5rem;
+}
+.shirt-img {
+  max-width: 100%;
+  width: 100%;
 }
