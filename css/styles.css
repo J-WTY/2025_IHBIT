@@ -13050,3 +13050,16 @@ html {
     max-width: 90%;
   }
 }
+
+.sponsor-logo {
+  max-width: 9vw;      /* 每張圖片最大寬度為視窗寬度的 12%（會自動縮放） */
+  height: auto;
+  margin: 1px;
+  object-fit: contain;
+}
+
+.sponsor-bg {
+  background-color: white;
+  padding: 1px;
+  border-radius: 1px;
+}
