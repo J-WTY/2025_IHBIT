@@ -13052,7 +13052,7 @@ html {
 }
 
 .sponsor-logo {
-  max-width: 8%;      /* 每張圖片最大寬度為視窗寬度的 12%（會自動縮放） */
+  max-width: 80%;      /* 每張圖片最大寬度為視窗寬度的 12%（會自動縮放） */
   height: auto;
   margin: 1px;
   object-fit: contain;
