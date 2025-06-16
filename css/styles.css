@@ -704,10 +704,14 @@ progress {
 }
 
 .img-fluid_item {
-  max-width: 75%;
+  max-width: 50%;
   height: auto;
 }
 
+.img-fluid_video {
+  max-width: 75%;
+  height: auto;
+}
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
